@@ -15,3 +15,6 @@ REST API server for shopping plants platform
 7. This will ask your machine and database password
 8. Run this command to populate roles `\i /Users/{username}/{path-to-project-dir}/roles.sql`
 9. Now you are all set
+
+## API documentation
+https://documenter.getpostman.com/view/8808498/UyrEgZje#intro
