@@ -31,6 +31,26 @@ public class Order {
 	
 	private Long price;
 	
+	private String address;
+	
+	private String sortCode;
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getSortCode() {
+		return sortCode;
+	}
+
+	public void setSortCode(String sortCode) {
+		this.sortCode = sortCode;
+	}
+
 	public Long getPrice() {
 		return price;
 	}
@@ -41,12 +61,14 @@ public class Order {
 
 	public Order() {}
 	
-	public Order(User user, String stripeToken, Long[] cartItemsIds, Long price) {
+	public Order(User user, String stripeToken, Long[] cartItemsIds, Long price, String address, String sortCode) {
 		super();
 		this.user = user;
 		this.stripeToken = stripeToken;
 		this.cartItemsIds = cartItemsIds;
 		this.price = price;
+		this.address = address;
+		this.sortCode = sortCode;
 	}
 
 	public Long getId() {

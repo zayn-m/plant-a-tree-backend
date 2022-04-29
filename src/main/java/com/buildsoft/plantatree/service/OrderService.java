@@ -36,7 +36,7 @@ public class OrderService extends BaseService {
 			total = total + items.get(i).getPlant().getPrice();
 		}
 		
-		Order orderObj = new Order(user, order.getStripeToken(), order.getCartItemsIds(), total);
+		Order orderObj = new Order(user, order.getStripeToken(), order.getCartItemsIds(), total, order.getAddress(), order.getSortCode());
 		Order createdOrder =  orderRepository.save(orderObj);
 		cartService.create(user);
 		return createdOrder;

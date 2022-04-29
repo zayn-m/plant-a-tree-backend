@@ -37,6 +37,10 @@ public class OrderController extends BaseController {
 	@PostMapping("")
 	public ResponseEntity<Object> create(@Valid @RequestBody Order order) {
 		try {
+			if (order.getAddress() == "" | order.getSortCode() == "") {
+				return BaseResponse.generateResponse("Payment failed, please enter shipping details", HttpStatus.BAD_REQUEST, null);
+			}
+			
 			Order result = orderService.create(order);
 			return BaseResponse.generateResponse("Successfully added data!", HttpStatus.CREATED, result);
 		} catch (Exception e) {
