@@ -42,6 +42,10 @@ public class PlantService extends BaseService  {
         return PagingResponse.of(result);
 	}
 	
+	public List<Plant> getByKeyword(String keyword) {
+		return plantRepo.findByKeyword(keyword);
+	}
+	
 	
 	public Plant createOrUpdate(Plant plant) {
 		checkAdminAccess();

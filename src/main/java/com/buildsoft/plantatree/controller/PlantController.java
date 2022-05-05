@@ -1,5 +1,7 @@
 package com.buildsoft.plantatree.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +42,11 @@ public class PlantController extends BaseController {
 	@GetMapping("{id}")
 	public Plant findOne(@PathVariable Long id) {
 		return plantService.findById(id);
+	}
+	
+	@GetMapping("/search")
+	public List<Plant> search(@RequestParam(value="q") String q) {
+		return plantService.getByKeyword(q);
 	}
 	
 	

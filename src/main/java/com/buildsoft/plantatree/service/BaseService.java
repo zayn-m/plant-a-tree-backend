@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -18,6 +19,10 @@ public class BaseService {
 
 	private Boolean isRunningTest = null;
 
+	@Autowired
+	private PasswordEncoder encoder;
+	
+	
     @Autowired
     private UserRepository userRepository;
     
@@ -48,6 +53,10 @@ public class BaseService {
     }
     
     public User getLoggedInUser() {
+//    	if (this.isRunningTest()) {
+//    		return new User("Jon Doe", "jondoe", "jondoe@gmail.com", encoder.encode("12345"));
+//    	}
+
         return userRepository
                 .findById(
                         ((UserPrinciple) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId())
@@ -55,7 +64,7 @@ public class BaseService {
     }
     
     public void checkAdminAccess() {
-    	if (this.isRunningTest()) { return; }
+//    	if (this.isRunningTest()) { return; }
     	User loggedInUser = getLoggedInUser();
 
 		if (!isAdmin(loggedInUser)) {

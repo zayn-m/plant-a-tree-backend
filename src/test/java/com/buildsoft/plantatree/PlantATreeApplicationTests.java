@@ -84,7 +84,7 @@ class PlantATreeApplicationTests {
 	}
 	
 	@Test
-	public void createPlantTest() {
+	public void createOrUpdateTest() {
 		Category cat = new Category("Herbs", "Description...");
 		when(categoryRepo.save(cat)).thenReturn(cat);
 		assertEquals(cat, categoryService.createCategory(cat));
