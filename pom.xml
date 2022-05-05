@@ -75,6 +75,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		<dependency>
+		  <groupId>junit</groupId>     <!-- NOT org.junit here -->
+		  <artifactId>junit-dep</artifactId>
+		  <version>4.8.2</version>
+		  <scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
